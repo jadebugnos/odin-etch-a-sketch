@@ -14,11 +14,15 @@ body {
 
 #box-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: calc(100% - 20%);
     width: calc(100% - 35%);
-    border: 2px solid black;
-    
+    border: 2px solid black;   
+    flex-wrap: wrap;
+}
+
+.boxes {
+    border: 1px solid black;
+    height: 6.25%;
+    width: 6.25%;
 }
 

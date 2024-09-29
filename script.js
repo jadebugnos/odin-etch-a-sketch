@@ -11,10 +11,6 @@ function multiplyBox() {
         parentBox.appendChild(clones);
     }
 
-    const childrenBoxes = document.getElementsByClassName('boxes');
-    for (child of childrenBoxes) {
-        child.style.backgroundColor = "black";
-    }
 }
 
 multiplyBox()
