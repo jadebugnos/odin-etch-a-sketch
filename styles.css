@@ -10,19 +10,42 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    background-color: rgb(188, 190, 202);
+}
+
+label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #000000;
 }
 
 #box-container {
     display: flex;
     height: calc(100% - 20%);
-    width: calc(100% - 35%);
-    border: 2px solid black;   
+    width: calc(100% - 35%);   
     flex-wrap: wrap;
 }
 
 .boxes {
-    border: 1px solid black;
     height: 6.25%;
     width: 6.25%;
 }
 
+#user-input {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.5em;
+    gap: 10px;
+}
+
+#button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgb(247, 203, 91);
+}
+
+.input-field {
+    border-radius: 5px;
+}
