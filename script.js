@@ -3,8 +3,19 @@ const numberofBoxes = 16 * 16;
 const originalChild = document.createElement('div');
 originalChild.classList.add('boxes')
 
+
+
 // converts human input into a value to be added to the grid length rows/column;
-const userInput = input => input / 100;
+// const toCovert = input => input / 100;
+
+document.getElementById('user-input').addEventListener('submit',getUserInput);
+
+function getUserInput(event) {
+    event.preventDefault();
+    const columns = document.getElementById('columns').value;
+    const rows =document.getElementById('rows').value;
+}
+
 
 
 function multiplyBox() {
@@ -23,9 +34,6 @@ parentBox.addEventListener('mouseover', e => {
         e.target.style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
     }
 })
-
-
-
 
 
 
