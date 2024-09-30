@@ -26,12 +26,22 @@ label {
     height: calc(100% - 20%);
     width: calc(100% - 35%);   
     flex-wrap: wrap;
+    border: 20px solid rgb(247, 203, 91);
+    border-radius: 20px;
 }
 
 .boxes {
     height: 6.25%;
     width: 6.25%;
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
 }
+
+.boxes:hover {
+    opacity: 1;
+    transition: opacity 0s;
+}
+
 
 #user-input {
     display: flex;

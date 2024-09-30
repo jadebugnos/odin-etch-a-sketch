@@ -48,13 +48,23 @@ function multiplyBox(boxes) {
 
 //changes the divs to a random color when hovered for 2 seconds
 parentBox.addEventListener('mouseover', e => {
+    let brightness = 100;
+    let percent = brightness + "%"
+    let interactionCount = 0;
     if (e.target !== e.currentTarget) {
         e.target.style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+        interactionCount++
+        [...parentBox.children].forEach(i => {
+            i.style.filter = `brightness(${percent})`;
+        })
     }
 
-    setTimeout(() => {
-        e.target.style.backgroundColor = "transparent";
-    }, 2000);
+    console.log(percent)
+    console.log(interactionCount)
+    
+    if (interactionCount <= 10) {
+        brightness -= 10;
+    }
 });
 
 
