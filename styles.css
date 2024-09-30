@@ -26,7 +26,6 @@ label {
     height: calc(100% - 20%);
     width: calc(100% - 35%);   
     flex-wrap: wrap;
-    border: 1px solid black;
 }
 
 .boxes {
