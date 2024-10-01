@@ -31,8 +31,8 @@ function getUserInput(event) {
     multiplyBox(numberofBoxes);
     //sets the new sizes of the box to prevent overflow
     [...parentBox.children].forEach(box => {
-        box.style.height = toCovert(columns);
-        box.style.width = toCovert(rows);
+        box.style.width = toCovert(columns);
+        box.style.height = toCovert(rows);
     })
 }
 
