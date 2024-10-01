@@ -2,8 +2,9 @@ const parentBox = document.querySelector('#box-container');
 let numberofBoxes = 16 * 16;
 const originalChild = document.createElement('div');
 originalChild.classList.add('boxes');
+
 // converts human input into a percentage.
-const toCovert = input => (100 / +input) + '%'; 
+const toCovert = input => (100 / +input) + '%';
 let columns = "";
 let rows = "";
 
@@ -21,7 +22,7 @@ function getUserInput(event) {
         rows <= 0 ||
         isNaN(columns) ||
         isNaN(rows)) {
-        alert("invalid input! only accepts values between 1 to 100 positive numbers.")
+        alert("invalid input! needs both values and only accepts positive numbers between 1 and 100.");
         numberofBoxes = 16 * 16;
     } else {
         numberofBoxes = columns * rows;
@@ -46,26 +47,67 @@ function multiplyBox(boxes) {
     }
 }
 
-//changes the divs to a random color when hovered for 2 seconds
-parentBox.addEventListener('mouseover', e => {
-    let brightness = 100;
-    let percent = brightness + "%"
-    let interactionCount = 0;
+
+//changes the divs to a random color when hovered
+parentBox.addEventListener('mouseover', getEffects);
+
+
+const effectsArr = {
+    crimson: '#DC143C',    
+    coral: '#FF7F50',      
+    teal: '#008080',         
+    violet: '#8A2BE2',       
+    turquoise: '#40E0D0',   
+    gold: '#FFD700',        
+    royalblue: '#4169E1',    
+    olive: '#808000',        
+    lavender: '#E6E6FA',     
+    salmon: '#FA8072',       
+    forestgreen: '#228B22',  
+    navy: '#000080',        
+    peachpuff: '#FFDAB9',   
+    chocolate: '#D2691E',   
+    hotpink: '#FF69B4',       
+
+
+    get rainbow() {
+        return '#' + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, '0');
+    }
+};
+
+
+function getEffects(e) {
+    const userChoice = document.querySelector('#effects').value;
+    const colorCode = effectsArr[userChoice];
+
     if (e.target !== e.currentTarget) {
-        e.target.style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
-        interactionCount++
-        [...parentBox.children].forEach(i => {
-            i.style.filter = `brightness(${percent})`;
-        })
+        e.target.style.backgroundColor = colorCode;
+    } else if (e.target !== e.currentTarget && userChoice === "rainbow") {
+        e.target.style.backgroundColor = colorCode.rainbow;
     }
-
-    console.log(percent)
-    console.log(interactionCount)
-    
-    if (interactionCount <= 10) {
-        brightness -= 10;
-    }
-});
-
+}
 
 multiplyBox(numberofBoxes);
+
+
+
+
+//just incase i need it
+// [...parentBox.children].forEach(i => {
+//     i.style.filter = `brightness(${percent})`;
+// })
+
+// let interactionCount = 0;
+// let brightness = 100;
+
+// console.log(percent)
+// console.log(interactionCount)
+
+// if (interactionCount < 10) {
+//     brightness -= 10;
+// }
+
+// interactionCount++
+// e.target.style.filter = `brightness(${percent})`;
+
+// let percent = brightness + "%";
