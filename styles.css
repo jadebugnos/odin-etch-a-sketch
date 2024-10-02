@@ -30,7 +30,7 @@ label {
     height: calc(100% - 20%);
     width: calc(100% - 35%);   
     flex-wrap: wrap;
-    border: 30px solid rgb(247, 203, 91);
+    border: 30px solid   #E3001B;
     border-radius: 20px;
     background-color: #D6CFC4;
 }
@@ -38,15 +38,16 @@ label {
 .boxes {
     height: 6.25%;
     width: 6.25%;
-    opacity: 0;
-    transition: opacity 10s ease-in-out;
+    /* opacity: 0; */
+    /* transition: opacity 10s ease-in-out; */
     border: 1px solid black;
 }
 
-.boxes:hover {
+
+/* .boxes:hover {
     opacity: 1;
     transition: opacity 0s;
-}
+} */
 
 
 #user-input {

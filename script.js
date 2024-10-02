@@ -53,23 +53,7 @@ parentBox.addEventListener('mouseover', getEffects);
 
 
 const effectsArr = {
-    crimson: '#DC143C',    
-    coral: '#FF7F50',      
-    teal: '#008080',         
-    violet: '#8A2BE2',       
-    turquoise: '#40E0D0',   
-    gold: '#FFD700',        
-    royalblue: '#4169E1',    
-    olive: '#808000',        
-    lavender: '#E6E6FA',     
-    salmon: '#FA8072',       
-    forestgreen: '#228B22',  
-    navy: '#000080',        
-    peachpuff: '#FFDAB9',   
-    chocolate: '#D2691E',   
-    hotpink: '#FF69B4',       
-
-
+    
     get rainbow() {
         return '#' + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, '0');
     }
@@ -77,11 +61,11 @@ const effectsArr = {
 
 
 function getEffects(e) {
-    const userChoice = document.querySelector('#effects').value;
-    const colorCode = effectsArr[userChoice];
+    const userChoice = document.querySelector('#colors').value;
+    // const colorCode = effectsArr[userChoice];
 
     if (e.target !== e.currentTarget) {
-        e.target.style.backgroundColor = colorCode;
+        e.target.style.backgroundColor = userChoice;
     } else if (e.target !== e.currentTarget && userChoice === "rainbow") {
         e.target.style.backgroundColor = colorCode.rainbow;
     }
