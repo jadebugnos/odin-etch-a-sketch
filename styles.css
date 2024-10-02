@@ -56,11 +56,25 @@ label {
     border: 1px solid black;
 }
 
+.effect-one {
+    opacity: 0;
+    transition: opacity 10s ease-in-out;
+} 
 
-/* .boxes:hover {
+
+.effect-one:hover {
     opacity: 1;
     transition: opacity 0s;
-} */
+}
+
+.effect-two {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
 
 
 #user-input {

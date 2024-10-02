@@ -15,13 +15,9 @@ function getUserInput(event) {
     rows = document.getElementById('rows').value;
     parentBox.replaceChildren();
 
-    //validates human input
-    if (columns > 100 ||
-        rows > 100 ||
-        columns <= 0 ||
-        rows <= 0 ||
-        isNaN(columns) ||
-        isNaN(rows)) {
+    let validate = validateInput(columns, rows);
+
+    if (!validate) {
         alert("invalid input! needs both values and only accepts positive numbers between 1 and 100.");
         columns = 26;
         rows = 16;
@@ -36,6 +32,15 @@ function getUserInput(event) {
         box.style.width = toCovert(columns);
         box.style.height = toCovert(rows);
     })
+}
+
+//validates human input
+function validateInput(columns, rows) {
+    if (columns > 100 || rows > 100 || columns <= 0 || rows <= 0 || isNaN(columns) || isNaN(rows)) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 document.getElementById('user-input').addEventListener('submit', getUserInput);
@@ -55,7 +60,7 @@ parentBox.addEventListener('mouseover', getColors);
 
 
 const effectsArr = {
-    
+
     get rainbow() {
         return '#' + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, '0');
     }
@@ -74,9 +79,9 @@ function getColors(e) {
 
     if (e.target !== e.currentTarget) {
         e.target.style.backgroundColor = userChoice;
-    } 
+    }
 
-    
+
     // else if (e.target !== e.currentTarget && effectChoice === "rainbow") {
     //     e.target.style.backgroundColor = effectsArr.rainbow;
     // }
@@ -84,7 +89,6 @@ function getColors(e) {
 
 
 function startDefault(column, row) {
-    
     columns = column;
     rows = row;
     numberofBoxes = columns * row;
