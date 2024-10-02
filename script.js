@@ -51,7 +51,7 @@ function multiplyBox(boxes) {
 
 
 //changes the divs to a random color when hovered
-parentBox.addEventListener('mouseover', getEffects);
+parentBox.addEventListener('mouseover', getColors);
 
 
 const effectsArr = {
@@ -62,16 +62,43 @@ const effectsArr = {
 };
 
 
-function getEffects(e) {
+function getEffects() {
+    const effectChoice = document.getElementById('effects').value;
+
+}
+
+function getColors(e) {
     const userChoice = document.querySelector('#colors').value;
+    const effectChoice = document.getElementById('effects').value;
     // const colorCode = effectsArr[userChoice];
 
     if (e.target !== e.currentTarget) {
         e.target.style.backgroundColor = userChoice;
-    } else if (e.target !== e.currentTarget && userChoice === "rainbow") {
-        e.target.style.backgroundColor = colorCode.rainbow;
-    }
+    } 
+
+    
+    // else if (e.target !== e.currentTarget && effectChoice === "rainbow") {
+    //     e.target.style.backgroundColor = effectsArr.rainbow;
+    // }
 }
+
+
+function startDefault(column, row) {
+    
+    columns = column;
+    rows = row;
+    numberofBoxes = columns * row;
+    multiplyBox(numberofBoxes);
+
+    [...parentBox.children].forEach(box => {
+        box.style.width = toCovert(columns);
+        box.style.height = toCovert(rows);
+    })
+
+}
+
+startDefault(30, 20);
+
 
 
 
