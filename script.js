@@ -63,6 +63,12 @@ const effectsArr = {
 
     get rainbow() {
         return '#' + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, '0');
+    },
+
+    get effectOne() {
+        [...parentBox.children].forEach(box => {
+            box.classList.add = "effect";
+        })
     }
 };
 
@@ -75,16 +81,11 @@ function getEffects() {
 function getColors(e) {
     const userChoice = document.querySelector('#colors').value;
     const effectChoice = document.getElementById('effects').value;
-    // const colorCode = effectsArr[userChoice];
 
-    if (e.target !== e.currentTarget) {
-        e.target.style.backgroundColor = userChoice;
-    }
+    if (e.target !== e.currentTarget && userChoice) e.target.style.backgroundColor = userChoice;
 
+    if (e.target !== e.currentTarget && effectChoice) e.target.style.backgroundColor = effectsArr.rainbow;
 
-    // else if (e.target !== e.currentTarget && effectChoice === "rainbow") {
-    //     e.target.style.backgroundColor = effectsArr.rainbow;
-    // }
 }
 
 
@@ -100,6 +101,14 @@ function startDefault(column, row) {
     })
 
 }
+
+const clear = document.getElementById('clear');
+
+clear.addEventListener('click', () => {
+    [...parentBox.children].forEach(box => {
+        box.style.backgroundColor = "transparent";
+    })
+})
 
 startDefault(30, 20);
 

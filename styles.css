@@ -84,7 +84,8 @@ label {
     gap: 10px;
 }
 
-#button {
+#button,
+#clear {
     padding: 5px 10px;
     border-radius: 5px;
     background-color: rgb(247, 203, 91);
@@ -92,4 +93,5 @@ label {
 
 .input-field {
     border-radius: 5px;
+    width: 50px;
 }
