@@ -1,5 +1,5 @@
 const parentBox = document.querySelector('#box-container');
-let numberofBoxes = 16 * 16;
+let numberofBoxes = 30 * 20;
 const originalChild = document.createElement('div');
 originalChild.classList.add('boxes');
 
@@ -23,7 +23,9 @@ function getUserInput(event) {
         isNaN(columns) ||
         isNaN(rows)) {
         alert("invalid input! needs both values and only accepts positive numbers between 1 and 100.");
-        numberofBoxes = 16 * 16;
+        columns = 26;
+        rows = 16;
+        numberofBoxes = columns * rows;
     } else {
         numberofBoxes = columns * rows;
     }
@@ -71,7 +73,7 @@ function getEffects(e) {
     }
 }
 
-multiplyBox(numberofBoxes);
+
 
 
 
