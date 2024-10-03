@@ -1,12 +1,33 @@
 # odin-etch-a-sketch
 
-Project: Etch-a-Sketch
-This is an interactive Etch-a-Sketch web application built using HTML, CSS, and JavaScript as part of the Odin Project curriculum. Users can draw on a grid by hovering over it with their mouse, mimicking the classic Etch-a-Sketch experience. The grid size can be customized, and the drawing color changes dynamically based on user interactions.
+This is a web-based Etch-a-Sketch app built as part of The Odin Project curriculum. It allows users to draw on a customizable grid by hovering over the squares, mimicking the functionality of a real Etch-a-Sketch toy.
 
-Features include:
+## Live Demo
 
--Customizable grid size for different levels of detail.
--Dynamic color changes when hovering over grid cells.
+Check out the live version here: [Etch-a-Sketch](https://jadebugnos.github.io/odin-etch-a-sketch/)
 
-This project helped me strengthen my understanding of DOM manipulation, event listeners, and CSS flex layout.
+## Features
 
+- Input separate values for rows and columns to customize the grid.
+- Hover over the grid to start drawing.
+- Color modes including random colors.
+- Clear button to reset the canvas.
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+
+## Usage
+
+1. Input your desired number of rows and columns to customize the grid.
+2. Hover over the grid to start drawing.
+3. Click the "Clear" button to reset the grid.
+
+
+Acknowledgments
+This project was developed as part of The Odin Project curriculum.
+
+
+This version now reflects the feature of customizing the grid by inputting separate numbers for rows and columns. Let me know if you'd like more changes!
