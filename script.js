@@ -19,8 +19,8 @@ function getUserInput(event) {
 
     if (!validate) {
         alert("invalid input! needs both values and only accepts positive numbers between 1 and 100.");
-        columns = 26;
-        rows = 16;
+        columns = 30; //default value
+        rows = 20;    //default value
         numberofBoxes = columns * rows;
     } else {
         numberofBoxes = columns * rows;
@@ -61,23 +61,28 @@ parentBox.addEventListener('mouseover', getColors);
 
 const effectsArr = {
 
+    // Getter that generates a random hex color code
     get rainbow() {
         return '#' + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, '0');
     },
 
-    get effectOne() {
+    // Method that adds the "effect" class to all child elements of the parentBox
+    effectOne() {
         [...parentBox.children].forEach(box => {
-            box.classList.add = "effect";
+            box.classList.add("effect");
         })
     }
 };
 
-
+// Placeholder function to retrieve the selected effect from the 'effects' dropdown
 function getEffects() {
     const effectChoice = document.getElementById('effects').value;
 
+    // Logic to apply the effect will be added here later
 }
 
+
+// Applies user color or rainbow effect to the clicked element
 function getColors(e) {
     const userChoice = document.querySelector('#colors').value;
     const effectChoice = document.getElementById('effects').value;
@@ -88,13 +93,13 @@ function getColors(e) {
 
 }
 
-
+// Initialize grid dimensions and generate boxes
 function startDefault(column, row) {
     columns = column;
     rows = row;
     numberofBoxes = columns * row;
     multiplyBox(numberofBoxes);
-
+    // Set width and height for each box based on column and row values
     [...parentBox.children].forEach(box => {
         box.style.width = toCovert(columns);
         box.style.height = toCovert(rows);
@@ -104,36 +109,12 @@ function startDefault(column, row) {
 
 const clear = document.getElementById('clear');
 
+// Clear background colors of all boxes when 'clear' button is clicked
 clear.addEventListener('click', () => {
     [...parentBox.children].forEach(box => {
         box.style.backgroundColor = "transparent";
     })
 })
 
+// Initialize the grid with 30 columns and 20 rows
 startDefault(30, 20);
-
-
-
-
-
-
-
-//just incase i need it
-// [...parentBox.children].forEach(i => {
-//     i.style.filter = `brightness(${percent})`;
-// })
-
-// let interactionCount = 0;
-// let brightness = 100;
-
-// console.log(percent)
-// console.log(interactionCount)
-
-// if (interactionCount < 10) {
-//     brightness -= 10;
-// }
-
-// interactionCount++
-// e.target.style.filter = `brightness(${percent})`;
-
-// let percent = brightness + "%";
